@@ -5,7 +5,7 @@
 - [ ] Replace reference imagery with the center's two photos when provided (awaiting photos).
 - [x] Improve loader, logo visibility, hero photo, typography, and additional 3D accents.
 - [x] Add a secure appointment request form and connect contact actions to it; verify desktop and mobile.
-- [x] Refresh Nayesha Childcare branding, play-focused home photo, color and motion.
+- [x] Refresh Nayesha Child Development Center branding, play-focused home photo, color and motion.
 - [ ] Verify the parent-facing, non-diagnostic AI therapy guide and copyable center summary live.
 - [x] Verify the new therapist activity planner and branding on desktop and mobile.
 - [x] Refresh the first-visit introduction and home hero; verify desktop and mobile.

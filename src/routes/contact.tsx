@@ -4,10 +4,10 @@ import { AppointmentForm } from '@/components/AppointmentForm';
 
 export const Route = createFileRoute('/contact')({
   head: () => ({ meta: [
-    { title: 'Request an Appointment | Nayesha Childcare' },
-    { name: 'description', content: 'Ask Nayesha Childcare to follow up about occupational therapy, speech therapy, special education, behavioral therapy or counselling for your child.' },
-    { property: 'og:title', content: 'Request an Appointment | Nayesha Childcare' },
-    { property: 'og:description', content: 'Choose a therapy and request a callback from the Nayesha Childcare team.' },
+    { title: 'Request an Appointment | Nayesha Child Development Center' },
+    { name: 'description', content: 'Ask Nayesha Child Development Center to follow up about occupational therapy, speech therapy, special education, behavioral therapy or counselling for your child.' },
+    { property: 'og:title', content: 'Request an Appointment | Nayesha Child Development Center' },
+    { property: 'og:description', content: 'Choose a therapy and request a callback from the Nayesha Child Development Center team.' },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },
   ] }),

@@ -10,9 +10,9 @@ const icons = [Hand, MessageCircle, BookOpen, Users, Heart];
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
-    { title: 'Nayesha Childcare | A brighter path for every child' },
-    { name: 'description', content: 'Child-centered occupational therapy, speech therapy, special education, behavioral therapy and counselling at Nayesha Childcare.' },
-    { property: 'og:title', content: 'Nayesha Childcare | A brighter path for every child' },
+    { title: 'Nayesha Child Development Center | A brighter path for every child' },
+    { name: 'description', content: 'Child-centered occupational therapy, speech therapy, special education, behavioral therapy and counselling at Nayesha Child Development Center.' },
+    { property: 'og:title', content: 'Nayesha Child Development Center | A brighter path for every child' },
     { property: 'og:description', content: 'Play-led, child-centered therapy and learning support for every little step.' },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },

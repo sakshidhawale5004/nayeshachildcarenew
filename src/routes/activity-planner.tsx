@@ -5,7 +5,7 @@ import { ActivityPlanner } from '@/components/ActivityPlanner';
 export const Route = createFileRoute('/activity-planner')({
   head: () => ({ meta: [
     { title: 'Play-Based Activity Planner | Nayesha Childcare' },
-    { name: 'description', content: 'Explore tailored play-based activity ideas for children’s therapy sessions at Nayesha Childcare.' },
+    { name: 'description', content: 'Explore tailored play-based activity ideas for children’s therapy sessions at Nayesha Child Development Center.' },
     { property: 'og:title', content: 'Play-Based Activity Planner | Nayesha Childcare' },
     { property: 'og:description', content: 'Create play-based activity ideas for upcoming children’s therapy sessions.' },
     { property: 'og:type', content: 'website' },

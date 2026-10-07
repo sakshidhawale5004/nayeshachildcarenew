@@ -64,8 +64,8 @@ export function PlayLoader() {
     return () => window.clearTimeout(timer);
   }, []);
   if (!visible) return null;
-  return <div className="play-loader" role="status" aria-label="Loading Nayesha Childcare">
-    <div className="loader-topline"><img className="loader-logo" src="/nayeshachildcare.png" alt="Nayesha Childcare" /><span>LET'S PLAY & GROW</span></div>
+  return <div className="play-loader" role="status" aria-label="Loading Nayesha Child Development Center">
+    <div className="loader-topline"><img className="loader-logo" src="/nayeshachilddevelopment.png" alt="Nayesha Child Development Center" /><span>LET'S PLAY & GROW</span></div>
     <div className="play-loader-scene">
       {mounted && <Canvas shadows dpr={[1, 1.5]} camera={{ position: [0, 3.5, 6.5], fov: 43 }}><PlayScene /></Canvas>}
     </div>

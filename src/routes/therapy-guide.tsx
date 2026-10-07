@@ -4,10 +4,10 @@ import { TherapyGuide } from '@/components/TherapyGuide';
 
 export const Route = createFileRoute('/therapy-guide')({
   head: () => ({ meta: [
-    { title: 'Explore Therapy Options | Nayesha Childcare' },
-    { name: 'description', content: 'Share what matters to your child and explore possible therapy options at Nayesha Childcare, with a short non-diagnostic summary for your conversation with us.' },
-    { property: 'og:title', content: 'Explore Therapy Options | Nayesha Childcare' },
-    { property: 'og:description', content: 'A gentle way to explore children’s therapy options and prepare for a conversation with Nayesha Childcare.' },
+    { title: 'Explore Therapy Options | Nayesha Child Development Center' },
+    { name: 'description', content: 'Share what matters to your child and explore possible therapy options at Nayesha Child Development Center, with a short non-diagnostic summary for your conversation with us.' },
+    { property: 'og:title', content: 'Explore Therapy Options | Nayesha Child Development Center' },
+    { property: 'og:description', content: 'A gentle way to explore children’s therapy options and prepare for a conversation with Nayesha Child Development Center.' },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },
   ] }),

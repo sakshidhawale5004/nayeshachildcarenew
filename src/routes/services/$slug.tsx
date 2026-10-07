@@ -7,9 +7,9 @@ import { getService, services } from '@/lib/services';
 export const Route = createFileRoute('/services/$slug')({
   loader: ({ params }) => { const service = getService(params.slug); if (!service) throw notFound(); return service; },
   head: ({ loaderData }) => ({ meta: [
-    { title: `${loaderData?.title ?? 'Therapies'} for Children | Nayesha Childcare` },
-    { name: 'description', content: loaderData ? `${loaderData.intro} Learn about our child-centered approach at Nayesha Childcare.` : 'Explore child-centered therapy at Nayesha Childcare.' },
-    { property: 'og:title', content: `${loaderData?.title ?? 'Therapies'} for Children | Nayesha Childcare` },
+    { title: `${loaderData?.title ?? 'Therapies'} for Children | Nayesha Child Development Center` },
+    { name: 'description', content: loaderData ? `${loaderData.intro} Learn about our child-centered approach at Nayesha Child Development Center.` : 'Explore child-centered therapy at Nayesha Child Development Center.' },
+    { property: 'og:title', content: `${loaderData?.title ?? 'Therapies'} for Children | Nayesha Child Development Center` },
     { property: 'og:description', content: loaderData?.short ?? 'Thoughtful support for every child.' },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },

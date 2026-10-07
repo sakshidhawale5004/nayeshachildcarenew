@@ -8,7 +8,7 @@ import { PlayLoader } from './PlayLoader';
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const path = useRouterState({ select: s => s.location.pathname });
-  const logoUrl = '/nayeshachilddevelopmentcenter.png';
+  const logoUrl = '/nayeshachilddevelopmentcenterfinal.png';
   return <>
     <PlayLoader />
     <div className="announcement">A brighter path for every child <span>✳</span> Play-led, child-centered care</div>

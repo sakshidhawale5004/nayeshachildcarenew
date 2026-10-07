@@ -65,7 +65,7 @@ export function PlayLoader() {
   }, []);
   if (!visible) return null;
   return <div className="play-loader" role="status" aria-label="Loading Nayesha Child Development Center">
-    <div className="loader-topline"><img className="loader-logo" src="/nayeshachilddevelopmentcenter.png" alt="Nayesha Child Development Center" /><span>LET'S PLAY & GROW</span></div>
+    <div className="loader-topline"><img className="loader-logo" src="/nayeshachilddevelopmentcenterfinal.png" alt="Nayesha Child Development Center" /><span>LET'S PLAY & GROW</span></div>
     <div className="play-loader-scene">
       {mounted && <Canvas shadows dpr={[1, 1.5]} camera={{ position: [0, 3.5, 6.5], fov: 43 }}><PlayScene /></Canvas>}
     </div>

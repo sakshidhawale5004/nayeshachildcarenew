@@ -62,6 +62,41 @@ export const planActivities = createServerFn({ method: 'POST' })
             steps: '1. Play music with clear rhythm. 2. Child moves with props. 3. Change movements with tempo.',
             goalConnection: 'Improves motor planning, bilateral coordination, and rhythm perception.',
             adaptation: 'Add directional cues for older kids; use larger movements for younger children.'
+          },
+          {
+            title: 'Obstacle Course Adventure',
+            materials: 'Pillows, cones, ropes, tunnels, or household items',
+            steps: '1. Create a course with different stations. 2. Child navigates through crawling, jumping, climbing. 3. Time and celebrate.',
+            goalConnection: 'Enhances gross motor skills, spatial awareness, and body coordination.',
+            adaptation: 'Make it simpler with fewer obstacles for younger kids; add complexity and speed challenges for older.'
+          },
+          {
+            title: 'Playdough Creations',
+            materials: 'Playdough, cookie cutters, small tools, rolling pins',
+            steps: '1. Provide playdough and tools. 2. Child shapes and molds. 3. Press, roll, and manipulate.',
+            goalConnection: 'Strengthens hand muscles, finger dexterity, and creative expression.',
+            adaptation: 'Softer dough for younger kids; firmer dough with smaller tools for older children.'
+          },
+          {
+            title: 'Ball Toss Target Games',
+            materials: 'Soft balls, buckets, hoops, or targets',
+            steps: '1. Set up targets at varying distances. 2. Child throws or tosses balls. 3. Adjust difficulty.',
+            goalConnection: 'Develops throwing accuracy, eye-hand coordination, and motor control.',
+            adaptation: 'Use larger balls and closer targets for younger kids; smaller balls and farther distances for older.'
+          },
+          {
+            title: 'Sensory Bin Exploration',
+            materials: 'Bins filled with sand, rice, beans, water, or kinetic sand',
+            steps: '1. Provide sensory materials and scoops. 2. Child explores by scooping, pouring, mixing. 3. Add hidden objects to find.',
+            goalConnection: 'Provides tactile input, calms regulation, and improves fine motor control.',
+            adaptation: 'Use larger scoops and materials for younger kids; add textures and tools for older children.'
+          },
+          {
+            title: 'String Threading Art',
+            materials: 'Yarn, beads, pasta, or straws with string',
+            steps: '1. Provide threading materials. 2. Child threads beads or pasta onto string. 3. Create patterns or jewelry.',
+            goalConnection: 'Builds pincer grip, hand-eye coordination, and visual planning skills.',
+            adaptation: 'Use large beads and thick strings for younger kids; small beads and thin strings for older.'
           }
         ],
         'speech-therapy': [
@@ -85,6 +120,41 @@ export const planActivities = createServerFn({ method: 'POST' })
             steps: '1. Ask open-ended questions. 2. Wait for child response. 3. Expand on their answers.',
             goalConnection: 'Builds receptive and expressive language skills through natural conversation.',
             adaptation: 'Use yes/no questions for younger children; complex "why" questions for older kids.'
+          },
+          {
+            title: 'Sound Scavenger Hunt',
+            materials: 'Items that make different sounds (bells, shakers, drums)',
+            steps: '1. Hide sound-making items around the room. 2. Child finds them and makes sounds. 3. Imitate and label sounds.',
+            goalConnection: 'Develops listening skills, sound discrimination, and vocabulary.',
+            adaptation: 'Use obvious sounds for younger kids; subtle sounds for older children.'
+          },
+          {
+            title: 'Story Picture Sequencing',
+            materials: 'Picture sequences of familiar events (getting ready, eating, playing)',
+            steps: '1. Show mixed-up pictures. 2. Child arranges in correct order. 3. Tell the story with full sentences.',
+            goalConnection: 'Builds sequencing skills, story comprehension, and narrative language.',
+            adaptation: 'Use 3 pictures for young kids; 5+ pictures for older children.'
+          },
+          {
+            title: 'Singing & Movement',
+            materials: 'Action songs, music player',
+            steps: '1. Sing familiar action songs. 2. Child performs corresponding movements. 3. Sing without words, gestures only.',
+            goalConnection: 'Integrates speech with motor skills and improves word retrieval.',
+            adaptation: 'Use simple one-action songs for younger; complex multi-action songs for older.'
+          },
+          {
+            title: 'Puppet Show Performance',
+            materials: 'Hand puppets or sock puppets',
+            steps: '1. Introduce puppet characters. 2. Child makes puppets talk and interact. 3. Create simple dialogue.',
+            goalConnection: 'Encourages expressive language, dialogue skills, and imaginative play.',
+            adaptation: 'Use simple characters and words for younger kids; complex storylines for older children.'
+          },
+          {
+            title: 'Word Association Game',
+            materials: 'Picture cards or objects',
+            steps: '1. Show an item or picture. 2. Child gives associated words. 3. Build sentences together.',
+            goalConnection: 'Strengthens vocabulary, semantic skills, and expressive language.',
+            adaptation: 'Use common items for younger kids; less obvious associations for older children.'
           }
         ],
         'special-education': [
@@ -108,6 +178,41 @@ export const planActivities = createServerFn({ method: 'POST' })
             steps: '1. Start with simple puzzles. 2. Child completes them. 3. Create patterns with blocks.',
             goalConnection: 'Develops problem-solving, spatial reasoning, and pattern recognition.',
             adaptation: 'Use large-piece puzzles for young kids; complex patterns for older learners.'
+          },
+          {
+            title: 'Shape Recognition Activity',
+            materials: 'Cut-out shapes, shape flashcards, or objects of different shapes',
+            steps: '1. Introduce basic shapes. 2. Child finds matching shapes in the room. 3. Sort and categorize.',
+            goalConnection: 'Builds shape recognition, spatial skills, and visual discrimination.',
+            adaptation: 'Focus on 3 basic shapes for younger kids; introduce more complex shapes for older children.'
+          },
+          {
+            title: 'Counting & Number Sequence',
+            materials: 'Counting objects, number cards, or visual aids',
+            steps: '1. Use objects to count to 10. 2. Child arranges in sequence. 3. Practice number ordering.',
+            goalConnection: 'Develops number sense, sequencing skills, and basic math foundations.',
+            adaptation: 'Count to 5 for younger kids; count to 20+ for older learners.'
+          },
+          {
+            title: 'Size Ordering Game',
+            materials: 'Objects of varying sizes or size comparison cards',
+            steps: '1. Show objects of different sizes. 2. Child arranges from smallest to largest. 3. Use size vocabulary.',
+            goalConnection: 'Builds vocabulary, comparison skills, and mathematical thinking.',
+            adaptation: 'Use 3 size categories for younger kids; 5+ categories for older children.'
+          },
+          {
+            title: 'Matching & Memory Game',
+            materials: 'Matching cards, pictures, or objects',
+            steps: '1. Create matching pairs. 2. Child finds matches or plays memory. 3. Increase difficulty gradually.',
+            goalConnection: 'Develops visual discrimination, memory, and cognitive skills.',
+            adaptation: 'Start with 4 pairs for younger kids; increase to 12+ pairs for older learners.'
+          },
+          {
+            title: 'Picture Sequencing Stories',
+            materials: 'Sequential picture cards of daily routines or familiar activities',
+            steps: '1. Show mixed-up picture sequence. 2. Child arranges in order. 3. Discuss what happens next.',
+            goalConnection: 'Enhances logical thinking, comprehension, and narrative understanding.',
+            adaptation: 'Use 3-4 pictures for younger kids; 6+ pictures for older learners.'
           }
         ],
         'behavioral-therapy': [
@@ -131,6 +236,41 @@ export const planActivities = createServerFn({ method: 'POST' })
             steps: '1. Create together during the session. 2. Display the finished work. 3. Celebrate effort.',
             goalConnection: 'Reinforces positive behavior through creative expression and accomplishment.',
             adaptation: 'Use simple coloring for young kids; more complex art projects for older children.'
+          },
+          {
+            title: 'Cooperative Building Challenge',
+            materials: 'Blocks, Legos, or stacking toys',
+            steps: '1. Set a building goal together. 2. Child and therapist build collaboratively. 3. Celebrate the creation.',
+            goalConnection: 'Promotes teamwork, sharing, and working toward shared goals.',
+            adaptation: 'Build simple structures for younger kids; complex designs for older children.'
+          },
+          {
+            title: 'Role-Playing Social Scenarios',
+            materials: 'Puppets, props, or picture cards of social situations',
+            steps: '1. Present a social scenario (sharing, greeting). 2. Child role-plays appropriate responses. 3. Discuss alternatives.',
+            goalConnection: 'Teaches social skills and appropriate responses to common situations.',
+            adaptation: 'Use simple scenarios for younger kids; complex social dilemmas for older children.'
+          },
+          {
+            title: 'Breathing & Calm Techniques',
+            materials: 'Bubbles, feathers, or visual calm cards',
+            steps: '1. Teach deep breathing. 2. Child practices while playing with bubbles or blowing feathers. 3. Use as coping skill.',
+            goalConnection: 'Develops self-regulation and emotional management skills.',
+            adaptation: 'Use visual cues for younger kids; more independent practice for older children.'
+          },
+          {
+            title: 'Reward Chart Activity',
+            materials: 'Chart paper, stickers, markers, or rewards',
+            steps: '1. Create a behavior chart together. 2. Child earns stickers for positive behaviors. 3. Work toward a reward.',
+            goalConnection: 'Motivates positive behavior through visual reinforcement and goal-setting.',
+            adaptation: 'Daily goals for younger kids; weekly goals for older children.'
+          },
+          {
+            title: 'Group Game Playing',
+            materials: 'Simple board games, card games, or dice games',
+            steps: '1. Choose a game. 2. Play together following rules. 3. Practice winning and losing gracefully.',
+            goalConnection: 'Builds sportsmanship, following rules, and accepting outcomes.',
+            adaptation: 'Use simple rules games for younger kids; strategic games for older children.'
           }
         ],
         'counselling': [
@@ -154,6 +294,41 @@ export const planActivities = createServerFn({ method: 'POST' })
             steps: '1. Read or tell a story. 2. Discuss character feelings. 3. Connect to child\'s experiences.',
             goalConnection: 'Encourages emotional processing and builds resilience through narrative.',
             adaptation: 'Simple picture books for young kids; complex stories for older children.'
+          },
+          {
+            title: 'Worry Box Creation',
+            materials: 'Box, paper, markers, or decorated container',
+            steps: '1. Create a decorated box together. 2. Child writes or draws worries on paper. 3. Place in box, discuss letting go.',
+            goalConnection: 'Helps manage anxiety by externalizing worries in a concrete way.',
+            adaptation: 'Draw worries for younger kids; write or dictate for older children.'
+          },
+          {
+            title: 'Feelings Thermometer',
+            materials: 'Paper, markers, or printed thermometer template',
+            steps: '1. Create a feelings scale from calm to upset. 2. Child identifies where they are. 3. Discuss what helps.',
+            goalConnection: 'Builds emotional awareness and self-monitoring skills.',
+            adaptation: 'Use 3 levels for younger kids; 5-10 levels for older children.'
+          },
+          {
+            title: 'Coping Strategy Card Making',
+            materials: 'Index cards, markers, stickers, or images',
+            steps: '1. Brainstorm coping strategies together. 2. Child illustrates each one. 3. Display as reminders.',
+            goalConnection: 'Creates personalized toolkit of healthy coping mechanisms.',
+            adaptation: 'Simple strategies (draw, hug) for younger kids; complex strategies (journaling, problem-solving) for older.'
+          },
+          {
+            title: 'Gratitude & Positive Reflection',
+            materials: 'Paper, markers, or gratitude jar',
+            steps: '1. Ask what went well today. 2. Child shares or draws. 3. Collect and review positives.',
+            goalConnection: 'Builds resilience and encourages positive thinking patterns.',
+            adaptation: 'One or two items for younger kids; multiple daily reflections for older children.'
+          },
+          {
+            title: 'My Feelings Mask Creation',
+            materials: 'Paper plates, markers, yarn, craft supplies',
+            steps: '1. Create a mask representing how they feel. 2. Decorate and discuss. 3. Explore different emotions.',
+            goalConnection: 'Provides creative emotional expression and self-exploration.',
+            adaptation: 'Simple faces for younger kids; complex mixed emotions for older children.'
           }
         ]
       };

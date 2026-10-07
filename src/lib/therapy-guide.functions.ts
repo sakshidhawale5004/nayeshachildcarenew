@@ -15,7 +15,58 @@ const suggestionSchema = z.object({
 export const suggestTherapies = createServerFn({ method: 'POST' })
   .inputValidator((data) => inputSchema.parse(data))
   .handler(async ({ data }) => {
-    if (!process.env['LOVABLE_API_KEY']) throw new Error('The guide is unavailable right now. Please try again later.');
+    // Fallback suggestions when API key is not available
+    if (!process.env['LOVABLE_API_KEY']) {
+      const available = services.map(({ slug, title, short, focus }) => ({ slug, title, short, focus }));
+      const keywords = data.needs.toLowerCase();
+      
+      // Simple keyword matching for fallback suggestions
+      const suggestions = [
+        {
+          condition: (text: string) => text.includes('speech') || text.includes('talk') || text.includes('communication') || text.includes('language'),
+          slug: 'speech-therapy',
+          reason: 'Based on your description about communication, speech therapy may support your child\'s language development.'
+        },
+        {
+          condition: (text: string) => text.includes('behavior') || text.includes('social') || text.includes('interaction'),
+          slug: 'behavioral-therapy',
+          reason: 'Behavioral therapy can help with social skills and emotional development.'
+        },
+        {
+          condition: (text: string) => text.includes('learning') || text.includes('special') || text.includes('education'),
+          slug: 'special-education',
+          reason: 'Special education support tailored to your child\'s learning needs.'
+        },
+        {
+          condition: (text: string) => text.includes('movement') || text.includes('motor') || text.includes('coordination') || text.includes('occupational'),
+          slug: 'occupational-therapy',
+          reason: 'Occupational therapy through play can support motor skills and daily activities.'
+        },
+        {
+          condition: (text: string) => text.includes('emotional') || text.includes('anxiety') || text.includes('stress') || text.includes('counsell'),
+          slug: 'counselling',
+          reason: 'Counselling provides emotional support and coping strategies for your child.'
+        }
+      ];
+
+      const matched = suggestions.filter(s => s.condition(keywords));
+      const options = matched.slice(0, 3).map(m => {
+        const service = services.find(item => item.slug === m.slug);
+        return service ? { slug: service.slug, title: service.title, color: service.color, reason: m.reason } : null;
+      }).filter(Boolean) as Array<{ slug: string; title: string; color: string; reason: string }>;
+
+      // If no keywords matched, suggest the first 3 services
+      if (options.length === 0) {
+        const defaultServices = services.slice(0, 3).map(s => ({ slug: s.slug, title: s.title, color: s.color, reason: `${s.title} is one of our core services designed to support children's development.` }));
+        const centerSummary = `Your child's needs: ${data.needs.slice(0, 150)}... We'd love to discuss how our therapies might help.`;
+        return { options: defaultServices, centerSummary };
+      }
+
+      const centerSummary = `You mentioned: ${data.needs.slice(0, 100)}... These therapy options might be worth exploring together.`;
+      return { options, centerSummary };
+    }
+
+    // Original API-based flow
     const { streamText, Output, NoObjectGeneratedError } = await import('ai');
     const { createOpenAI } = await import('@ai-sdk/openai');
     const { createLovableAiGatewayRunIdFetch } = await import('./ai-run-id.server');

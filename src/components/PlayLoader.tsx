@@ -2,7 +2,6 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, Lightformer } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import logo from '@/assets/nyesha-logo.webp.asset.json';
 import { Button } from '@/components/ui/button';
 
 function PlayingChild({ position, shirt, phase, skin }: { position: [number, number, number]; shirt: string; phase: number; skin: string }) {
@@ -66,7 +65,7 @@ export function PlayLoader() {
   }, []);
   if (!visible) return null;
   return <div className="play-loader" role="status" aria-label="Loading Nayesha Childcare">
-    <div className="loader-topline"><img className="loader-logo" src={logo.url} alt="Nayesha Childcare" /><span>LET'S PLAY & GROW</span></div>
+    <div className="loader-topline"><img className="loader-logo" src="/nayeshachildcare.png" alt="Nayesha Childcare" /><span>LET'S PLAY & GROW</span></div>
     <div className="play-loader-scene">
       {mounted && <Canvas shadows dpr={[1, 1.5]} camera={{ position: [0, 3.5, 6.5], fov: 43 }}><PlayScene /></Canvas>}
     </div>

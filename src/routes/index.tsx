@@ -27,7 +27,7 @@ function Home() {
       <div className="hero-wash" />
       <div className="hero-content container-wide">
         <div className="hero-copy"><span className="eyebrow hero-eyebrow"><Sparkles size={16}/> WHERE PLAY BECOMES POSSIBILITY</span>
-          <h1>Nayesha<br/><em>Childcare.</em></h1>
+          <h1>Nayesha<br/><em>child development center.</em></h1>
           <p>Every child has their own wonderful way of growing. We're here to make the journey playful, personal and full of possibility.</p>
           <div className="hero-actions"><Button variant="brand" size="xl" asChild><a href="#therapies">Explore our therapies <ArrowUpRight size={19}/></a></Button><Button variant="outlineBrand" size="xl" asChild><Link to="/therapy-guide"><WandSparkles size={18}/> Find a starting point</Link></Button></div>
           <div className="hero-care-note"><span className="hero-care-mark" aria-hidden="true">✳</span><span>Play-led care for<br/>every little milestone.</span></div>

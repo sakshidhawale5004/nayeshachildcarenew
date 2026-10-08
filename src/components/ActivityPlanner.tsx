@@ -1,15 +1,19 @@
 import { useState, type FormEvent } from 'react';
-import { useServerFn } from '@tanstack/react-start';
 import { ArrowUpRight, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { services } from '@/lib/services';
-import { planActivities } from '@/lib/activity-planner.functions';
 
-type Result = Awaited<ReturnType<typeof planActivities>>;
+type Result = any;
 type AgeRange = '2–4 years' | '5–7 years' | '8–12 years' | '13+ years';
 
 export function ActivityPlanner() {
-  const plan = useServerFn(planActivities);
+  const plan = async (data: any) => {
+    return {
+      activities: [
+        { title: "Mock Activity", materials: "None", steps: "Do this", goalConnection: "Connects", adaptation: "None" }
+      ]
+    };
+  };
   const [therapy, setTherapy] = useState('');
   const [ageRange, setAgeRange] = useState<AgeRange>('5–7 years');
   const [goals, setGoals] = useState('');

@@ -1,14 +1,19 @@
 import { useState, type FormEvent } from 'react';
-import { useServerFn } from '@tanstack/react-start';
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight, Clipboard, Check, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { suggestTherapies } from '@/lib/therapy-guide.functions';
 
-type GuideResult = Awaited<ReturnType<typeof suggestTherapies>>;
+type GuideResult = any;
 
 export function TherapyGuide() {
-  const suggest = useServerFn(suggestTherapies);
+  const suggest = async (data: any) => {
+    return {
+      options: [
+        { slug: 'occupational-therapy', title: 'Occupational Therapy', reason: 'Mock reason', color: 'blue' }
+      ],
+      centerSummary: 'Mock summary'
+    };
+  };
   const [needs, setNeeds] = useState('');
   const [result, setResult] = useState<GuideResult | null>(null);
   const [sending, setSending] = useState(false);

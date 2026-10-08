@@ -10,20 +10,38 @@ export const Route = createFileRoute('/login')({
 
 function LoginPage() {
   const navigate = useNavigate();
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
-    // Simple hardcoded password for now since Supabase is removed
-    if (password === 'admin123') {
-      // You can use a more secure PHP session here in the future
-      localStorage.setItem('isAuthenticated', 'true');
-      navigate({ to: '/dashboard' });
-    } else {
-      setError('Invalid password');
+    try {
+      const response = await fetch('/api/login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          localStorage.setItem('isAuthenticated', 'true');
+          navigate({ to: '/dashboard' });
+        } else {
+          setError('Invalid credentials');
+        }
+      } else {
+        setError('Invalid username or password');
+      }
+    } catch (err) {
+      setError('An error occurred while logging in.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -38,6 +56,17 @@ function LoginPage() {
         )}
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-2">
+            <Label htmlFor="username">Username</Label>
+            <Input
+              id="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              placeholder="Enter username"
+            />
+          </div>
+          <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
             <Input
               id="password"
@@ -45,11 +74,11 @@ function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              placeholder="Enter admin password (admin123)"
+              placeholder="Enter password"
             />
           </div>
-          <Button type="submit" className="w-full" variant="brand">
-            Login
+          <Button type="submit" className="w-full" variant="brand" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </Button>
         </form>
       </div>

@@ -84,9 +84,11 @@ function DashboardPage() {
             <Table>
               <TableHeader>
                 <TableRow>
+                  <TableHead className="w-[100px]">ID</TableHead>
                   <TableHead>Date</TableHead>
                   <TableHead>Parent Name</TableHead>
-                  <TableHead>Contact</TableHead>
+                  <TableHead>Email</TableHead>
+                  <TableHead>Phone</TableHead>
                   <TableHead>Therapy</TableHead>
                   <TableHead>Message</TableHead>
                 </TableRow>
@@ -94,14 +96,15 @@ function DashboardPage() {
               <TableBody>
                 {requests.map((request) => (
                   <TableRow key={request.id}>
+                    <TableCell className="font-mono text-xs text-muted-foreground">
+                      {request.id.slice(-6)}
+                    </TableCell>
                     <TableCell className="whitespace-nowrap">
                       {new Date(request.created_at).toLocaleDateString()}
                     </TableCell>
                     <TableCell className="font-medium">{request.parent_name}</TableCell>
-                    <TableCell>
-                      <div>{request.email}</div>
-                      <div className="text-sm text-gray-500">{request.phone}</div>
-                    </TableCell>
+                    <TableCell>{request.email}</TableCell>
+                    <TableCell>{request.phone}</TableCell>
                     <TableCell className="capitalize">
                       {request.therapy.replace('-', ' ')}
                     </TableCell>

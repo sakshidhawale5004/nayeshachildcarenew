@@ -41,7 +41,7 @@ function DashboardPage() {
 
   const fetchRequests = async () => {
     try {
-      const response = await fetch('/api/requests.json');
+      const response = await fetch('/api/requests');
       if (!response.ok) {
         throw new Error('Failed to load data');
       }

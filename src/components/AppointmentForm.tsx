@@ -29,7 +29,7 @@ export function AppointmentForm() {
         message: String(values.get('message') ?? ''),
       };
 
-      const response = await fetch('/api/submit.php', {
+      const response = await fetch('/api/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

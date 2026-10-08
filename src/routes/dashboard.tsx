@@ -1,5 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   Table,
   TableBody,
@@ -24,13 +25,19 @@ type AppointmentRequest = {
 };
 
 function DashboardPage() {
+  const navigate = useNavigate();
   const [requests, setRequests] = useState<AppointmentRequest[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    // Check if the user has logged in via our simple hardcoded login
+    if (localStorage.getItem('isAuthenticated') !== 'true') {
+      navigate({ to: '/login' });
+      return;
+    }
     fetchRequests();
-  }, []);
+  }, [navigate]);
 
   const fetchRequests = async () => {
     try {
@@ -47,11 +54,19 @@ function DashboardPage() {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('isAuthenticated');
+    navigate({ to: '/login' });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto py-10 px-4">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Dashboard</h1>
+          <Button variant="outline" onClick={handleLogout}>
+            Logout
+          </Button>
         </div>
 
         {error && (

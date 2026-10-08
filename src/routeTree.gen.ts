@@ -14,7 +14,6 @@ import { Route as ActivityPlannerRouteImport } from './routes/activity-planner'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as TherapyGuideRouteImport } from './routes/therapy-guide'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
-import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 
 const IndexRoute = IndexRouteImport.update({
@@ -42,11 +41,6 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -59,7 +53,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/therapy-guide': typeof TherapyGuideRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/login': typeof LoginRoute
   '/dashboard': typeof DashboardRoute
 }
 export interface FileRoutesByTo {
@@ -68,7 +61,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/therapy-guide': typeof TherapyGuideRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/login': typeof LoginRoute
   '/dashboard': typeof DashboardRoute
 }
 export interface FileRoutesById {
@@ -78,7 +70,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/therapy-guide': typeof TherapyGuideRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/login': typeof LoginRoute
   '/dashboard': typeof DashboardRoute
 }
 export interface FileRouteTypes {
@@ -89,7 +80,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/therapy-guide'
     | '/services/$slug'
-    | '/login'
     | '/dashboard'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -98,7 +88,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/therapy-guide'
     | '/services/$slug'
-    | '/login'
     | '/dashboard'
   id:
     | '__root__'
@@ -107,7 +96,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/therapy-guide'
     | '/services/$slug'
-    | '/login'
     | '/dashboard'
   fileRoutesById: FileRoutesById
 }
@@ -117,7 +105,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   TherapyGuideRoute: typeof TherapyGuideRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
-  LoginRoute: typeof LoginRoute
   DashboardRoute: typeof DashboardRoute
 }
 
@@ -158,13 +145,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -181,7 +161,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   TherapyGuideRoute: TherapyGuideRoute,
   ServicesSlugRoute: ServicesSlugRoute,
-  LoginRoute: LoginRoute,
   DashboardRoute: DashboardRoute,
 }
 export const routeTree = rootRouteImport

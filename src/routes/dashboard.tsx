@@ -1,8 +1,5 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
-import { supabase } from '@/integrations/supabase/client';
-import { SiteLayout } from '@/components/SiteLayout';
-import { Button } from '@/components/ui/button';
 import {
   Table,
   TableBody,
@@ -27,35 +24,22 @@ type AppointmentRequest = {
 };
 
 function DashboardPage() {
-  const navigate = useNavigate();
   const [requests, setRequests] = useState<AppointmentRequest[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        navigate({ to: '/login' });
-      } else {
-        fetchRequests();
-      }
-    };
-    checkSession();
-  }, [navigate]);
+    fetchRequests();
+  }, []);
 
   const fetchRequests = async () => {
     try {
-      const { data, error } = await supabase
-        .from('appointment_requests')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        setError(error.message);
-      } else if (data) {
-        setRequests(data);
+      const response = await fetch('/api/requests.json');
+      if (!response.ok) {
+        throw new Error('Failed to load data');
       }
+      const data = await response.json();
+      setRequests(data || []);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -63,19 +47,11 @@ function DashboardPage() {
     }
   };
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate({ to: '/login' });
-  };
-
   return (
-    <SiteLayout>
+    <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto py-10 px-4">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-          <Button variant="outline" onClick={handleLogout}>
-            Logout
-          </Button>
+          <h1 className="text-3xl font-bold">Dashboard</h1>
         </div>
 
         {error && (
@@ -124,6 +100,6 @@ function DashboardPage() {
           )}
         </div>
       </div>
-    </SiteLayout>
+    </div>
   );
 }

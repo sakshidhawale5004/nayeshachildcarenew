@@ -1,12 +1,9 @@
 import { useState, type FormEvent } from 'react';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
-import { useServerFn } from '@tanstack/react-start';
 import { services } from '@/lib/services';
 import { Button } from '@/components/ui/button';
-import { requestAppointment } from '@/lib/appointments.functions';
 
 export function AppointmentForm() {
-  const submitRequest = useServerFn(requestAppointment);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
@@ -16,22 +13,37 @@ export function AppointmentForm() {
     const form = event.currentTarget;
     if (!form.reportValidity()) return;
     const values = new FormData(form);
+    
+    // Honeypot check
+    if (values.get('website')) return;
+    
     setSending(true);
     setError('');
+    
     try {
-      await submitRequest({ data: {
+      const payload = {
         parent_name: String(values.get('parent_name') ?? ''),
         email: String(values.get('email') ?? ''),
         phone: String(values.get('phone') ?? ''),
-        therapy: String(values.get('therapy') ?? '') as 'occupational-therapy',
+        therapy: String(values.get('therapy') ?? ''),
         message: String(values.get('message') ?? ''),
-        website: String(values.get('website') ?? ''),
-      } });
+      };
+
+      const response = await fetch('/api/submit.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      
+      if (!response.ok) throw new Error('Submission failed');
+      
       setSent(true);
       form.reset();
     } catch {
       setError('We could not send your request. Please try again.');
-    } finally { setSending(false); }
+    } finally { 
+      setSending(false); 
+    }
   }
 
   if (sent) return <div className="appointment-confirmation" role="status"><CheckCircle2 size={36}/><h3>Thank you for reaching out.</h3><p>Your request has been received. The Nayesha team will follow up using the details you shared.</p><Button variant="outlineBrand" onClick={() => setSent(false)}>Send another request</Button></div>;

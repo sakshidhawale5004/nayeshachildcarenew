@@ -28,7 +28,7 @@ function ContactPage() {
     </div>
     <div>
       <h3 className="font-semibold text-lg text-gray-900">Location</h3>
-      <p className="text-gray-700">NAYESHA CHILD DEVELOPMENT CENTER<br />SHOP NO.6, HIGHLIFE RESIDENCY, PLOT NO.24<br />SECTOR - 22, KAMOTHE.<br />OPP. KIDZONIA PRE-SCHOOL</p>
+      <p className="text-gray-700">Nayesha Child Development Center<br />Shop No. 6, Highlife Residency, Plot No. 24<br />Sector - 22, Kamothe.<br />Opp. Kidzonia Pre-School</p>
     </div>
   </div>
 
